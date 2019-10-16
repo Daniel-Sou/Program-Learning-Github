@@ -1,0 +1,131 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+
+{
+
+  // 
+
+Prompt the user to enter taxable income
+
+  cout << "Enter the taxable income: ";
+
+  double income;
+
+  cin >> income;
+
+
+  // Compute tax
+
+  double tax = 0;
+
+    // Compute tax for single filers
+
+    if (income <= 9525)
+
+      tax = income * 0.10;
+
+    else if (income <= 38700)
+
+      tax = 9525 * 0.10 + (income - 9525) * 0.12;
+
+    else if (income <= 82500)
+
+      tax = 9525 * 0.10 + (38700 - 9525) * 0.12 + (income - 38700) * 0.22;
+
+    else if (income <=157500)
+
+    tax = 9525 * 0.10 + (38700 - 9525) * 0.12 + (82500 - 38700) * 0.22 + (income - 82500) * 0.24;
+
+    else if (income <= 200000)
+
+            tax = 9525 * 0.10 + (38700 - 9525) * 0.12 + (82500 - 38700) * 0.22 + (157000 - 82500) * 0.24
+
++ (income - 157500) * 0.32;
+
+    else if (income <= 500000)
+
+            tax = 9525 * 0.10 + (38700 - 9525) * 0.12 + (82500 - 38700) * 0.22 + (157000 - 82500) * 0.24
+
++ (200000 - 157500) * 0.32 + (income - 200000) * 0.35  ;
+
+         else 
+
+            tax = 9525 * 0.10 + (38700 - 9525) * 0.12 + (82500 - 38700) * 0.22 + (157000 - 82500) * 0.24
+
++ (200000 - 157500) * 0.32 + (500000 - 200000) * 0.35 + (income-500000) *0.37 ;
+
+
+  // Display the result
+
+  cout << tax << endl;
+
+  cout << "Tax is " << static_cast<int>(tax * 100) / 100.0 << endl;
+
+
+  return 0;
+
+}
+
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+
+{
+
+  // Prompt the user to enter taxable income
+
+  cout << "Enter the taxable income: ";
+
+  double income;
+
+  cin >> income;
+
+
+  // Compute tax
+
+  double tax = 0;
+
+
+
+    // Compute tax for single filers
+
+    if (income <= 6000)
+
+      tax = income * 0.10;
+
+    else if (income <= 27950)
+
+      tax = 6000 * 0.10 + (income - 6000) * 0.15;
+
+    else if (income <= 67700)
+
+      tax = 6000 * 0.10 + (27950 - 6000) * 0.15 + (income - 27950) * 0.27;
+
+    else if (income <= 141250)
+
+      tax = 6000 * 0.10 + (27950 - 6000) * 0.15 + (67700 - 27950) * 0.27 + (income - 67700) * 0.30;
+
+    else if (income <= 307050)
+
+      tax = 6000 * 0.10 + (27950 - 6000) * 0.15 + (67700 - 27950) * 0.27 + (141250 - 67700) * 0.30 + (income - 141250) * 0.35;
+
+    else
+
+      tax = 6000 * 0.10 + (27950 - 6000) * 0.15 + (67700 - 27950) * 0.27 + (141250 - 67700) * 0.30 + (307050 - 141250) * 0.35 + (income - 307050) * 0.386;
+
+  // Display the result
+
+  cout << tax << endl;
+
+  cout << "Tax is " << static_cast<int>(tax * 100) / 100.0 << endl;
+
+
+  return 0;
+
+}
