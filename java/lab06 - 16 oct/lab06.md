@@ -12,6 +12,8 @@ public in countNodes() {
 
     while (current !=null) {
         124
+        144
+        166
     }
 }
 ```
