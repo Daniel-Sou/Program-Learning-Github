@@ -11,7 +11,7 @@ public in countNodes() {
     Node<E> current = head;
 
     while (current !=null) {
-        
+        124
     }
 }
 ```
