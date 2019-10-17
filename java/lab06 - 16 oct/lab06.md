@@ -6,7 +6,11 @@ This is making lab
 
 
 ```java
-for i in 
+public in countNodes() {
+    int counter = 0;
+
+    Node<E> current = head;
+}
 ```
 
 The end.
