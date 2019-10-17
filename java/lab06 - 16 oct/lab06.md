@@ -4,12 +4,15 @@ Java - Lab class
 
 This is making lab
 
-
 ```java
 public in countNodes() {
     int counter = 0;
 
     Node<E> current = head;
+
+    while (current !=null) {
+        
+    }
 }
 ```
 
