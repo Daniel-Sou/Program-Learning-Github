@@ -53,3 +53,39 @@ public static void main(String[] args) {
     System.out.println("\nCount of nodes present in the list: " + dList.countNodes());
 }
 ```
+
+## Exercise
+
+**Develop a general program: Rotate a doubly linked list by N nodes.**
+
+### Algorithm
+1. Define a Node class which represents a node in the list. 
+
+    It will have three properties: 
+    data, previous which will point to the previous node and next which will point to the next node.
+
+2. Define another class for creating the doubly linked list, and it has two nodes: head and tail. Initially, head and tail will point to null.
+
+3. `addNode()` will add node to the list:
+    - It first checks whether the head is null, then it will insert the node as the head.
+    - Both head and tail will point to a newly added node.
+    - Head's previous pointer will point to null and tail's next pointer will point to null.
+    - If the head is not null, the new node will be inserted at the end of the list such that new node's previous pointer will point to tail.
+    - The new node will become the new tail. Tail's next pointer will point to null.
+
+4. `rotateList()` will rotate the list by given n nodes.
+    - First, check whether n is 0 or greater than or equal to many nodes present in the list.
+    - If yes, print the list as it is.
+    - If no, define a node current which will point to head.
+    - Iterate through the list till current reaches the nth node.
+    - Tail's next will point to head node.
+    - Make node next to current as the new head. Head's previous will point to null.
+    - The current node will become tail of the list. Tail's next will point to null.
+
+5. `display()` will show all the nodes present in the list.
+    - Define a new node 'current' that will point to the head.
+    - Print current.data till current points to null.
+    - Current will point to the next node in the list in each iteration.
+
+Reference:
+https://www.javatpoint.com/program-to-rotate-doubly-linked-list-by-n-nodes
