@@ -41,5 +41,6 @@ public static void main(String[] args) {
     dList.addFirst(1);
     dList.addLast(2);
     dList.addLast(3);
+    dList.addLast(4);
 }
 ```
