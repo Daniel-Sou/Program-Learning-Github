@@ -18,11 +18,28 @@ public int countNodes() {
         counter ++;
         current = current.getNext();
     }
+
+    return counter;
 }
 ```
 
-## Exercise
-
+`display()` will print out the elements of the list
 ```java
+public void display() {
+    // Node current will point to head
+    Node<E> current = head;
+    if (head == null) {
+        System.out.print(current.getElement() + " ");
+        current = current.getNext();
+    }
+}
 
+public static void main(String[] args) {
+    DoublyLinkedList dList = new DoublyLinkedList();
+
+    // Add nodes to the list
+    dList.addFirst(1);
+    dList.addLast(2);
+    dList.addLast(3);
+}
 ```
