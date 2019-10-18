@@ -5,6 +5,7 @@ Java - Lab class
 ## Practise
 
 **Create a doubly linked list of n nodes and count the number of nodes**
+
 (Using the code in the lecture note first, then the following)
 
 In this program, we will create a doubly linked list and count the number of nodes present in the list. To count the node, we traverse through the list by incrementing the counter by 1.
@@ -77,6 +78,9 @@ public static void main(String[] args) {
     System.out.println("\nCount of nodes present in the list: " + dList.countNodes());
 }
 ```
+
+Reference:
+https://www.javatpoint.com/program-to-create-a-doubly-linked-list-of-n-nodes-and-count-the-number-of-nodes
 
 ## Exercise
 
