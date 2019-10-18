@@ -115,5 +115,7 @@ https://www.javatpoint.com/program-to-create-a-doubly-linked-list-of-n-nodes-and
     - Print current.data till current points to null.
     - Current will point to the next node in the list in each iteration.
 
+6. Increase
+
 Reference:
 https://www.javatpoint.com/program-to-rotate-doubly-linked-list-by-n-nodes
