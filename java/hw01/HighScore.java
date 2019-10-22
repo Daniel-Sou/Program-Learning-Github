@@ -12,29 +12,63 @@ public class HighScore {
         while (true) {
             System.out.println("Enter the name (type 'end' to quit) >> ");
             String name = scanner.nextLine();
+
+            // If type "end", the program will quit
             if ("end".equals(name)) {
                 break;
             }
+
             System.out.println("Enter the score >> ");
             String score = scanner.nextLine();
             highScore.insert(name, Integer.parseInt(score));
             System.out.println("High score >> ");
-            System.out.println
-
+            System.out.println(highScore.toString());
         }
     }
 
     // Constructor
-<<<<<<< HEAD
     public HighScore() {
         // Create an empty ArrayList
         scores = new LinkedList<String>();
     }
 
     public void insert(String name, Integer score) {
-=======
-    
->>>>>>> fa4fa18fce5940d0b52ed5a61c6e642093dfcf10
+        String newScore = name + " " + score.toString();
+        if (scores.isEmpty()) {
+            scores.add(newScore);
+            return;
+        }
 
+        for (int i = 0; i <= scores.size(); i++) {
+            if (i == scores.size()) {
+                scores.add(newScore);
+                break;
+            }
+
+            if (isGreaterThan(newScore, scores.get(i))) {
+                scores.add(i, newScore);
+                break;
+            }
+        }
+
+        while (scores.size() > 10) {
+            scores.remove(10);
+        }
+    }
+
+    public boolean isGreaterThan(String first, String second) {
+        Integer firstScore = Integer.parseInt(first.substring(first.lastIndexOf(" ") + 1));
+        Integer secondScore = Integer.parseInt(second.substring(second.lastIndexOf(" ") + 1));
+        return firstScore > secondScore;
+    }
+
+    public String toString() {
+        String scoreList = "";
+
+        for (int i = 0; i < scores.size(); i++) {
+            scoreList = scoreList + scores.get(i) + "\n";
+        }
+
+        return scoreList;
     }
 }
