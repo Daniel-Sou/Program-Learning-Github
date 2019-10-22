@@ -25,12 +25,16 @@ public class HighScore {
     }
 
     // Constructor
+<<<<<<< HEAD
     public HighScore() {
         // Create an empty ArrayList
         scores = new LinkedList<String>();
     }
 
     public void insert(String name, Integer score) {
+=======
+    
+>>>>>>> fa4fa18fce5940d0b52ed5a61c6e642093dfcf10
 
     }
 }
