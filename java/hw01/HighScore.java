@@ -16,10 +16,21 @@ public class HighScore {
                 break;
             }
             System.out.println("Enter the score >> ");
+            String score = scanner.nextLine();
+            highScore.insert(name, Integer.parseInt(score));
+            System.out.println("High score >> ");
+            System.out.println
 
         }
     }
 
     // Constructor
+    public HighScore() {
+        // Create an empty ArrayList
+        scores = new LinkedList<String>();
+    }
 
+    public void insert(String name, Integer score) {
+
+    }
 }
