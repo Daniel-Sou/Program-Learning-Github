@@ -1,6 +1,6 @@
 public class fibLinear {
     // Linear Recursion
-  int fibLinear (int add, int sum, int n) {
+  public static long fibLinear (int add, int sum, int n) {
     if ( n <= 2) {
       return sum;
     } else if ( n > 2) {
