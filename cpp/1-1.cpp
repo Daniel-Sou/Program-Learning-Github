@@ -13,5 +13,6 @@ int main(){
     int newNum = 10 + ++i;
 
     cout << ++a << "\n";
+    cout << i << "\n";
     cout << "Result is " << newNum << endl;
 }

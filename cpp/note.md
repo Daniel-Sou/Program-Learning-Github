@@ -31,8 +31,10 @@ using namespace std;
 int main(){
     int i,a = 10;
 
+    // newNum = 10 + (i = i + 1);
     int newNum = 10 + ++i;
 
+    // ++a = 10 + 1 = 11;
     cout << ++a << "\n";
     cout << "Result is " << newNum << endl;
 }

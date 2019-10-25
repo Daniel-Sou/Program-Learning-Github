@@ -1,9 +1,21 @@
 #include <iostream>
 
+// Using the class 'std'
+using namespace std;
+
 int main()
 {
+    float income;
+    cout << "Enter your monthly income >> ";
+    cin >> income;
 
-    std::cout << "1\n";
-    std::cout << "2\n";
-    std::cout << "3\n";
+    if (income < 0.0) {
+        cout << "You are going farther into debt every month." << endl;
+    } else if (income < 1200.00) {
+        cout << "You are living below the poverty line." << endl;
+    } else if (income < 2500.00) {
+        cout << "You are living in moderate comfort." << endl;
+    } else {
+        cout << "You are well off." << endl;
+    }
 }
