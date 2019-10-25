@@ -39,3 +39,17 @@ int main(){
     cout << "Result is " << newNum << endl;
 }
 ```
+
+## C++ Template
+```cpp
+#include <stdlib.h>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+  // Program body
+
+}
+```
