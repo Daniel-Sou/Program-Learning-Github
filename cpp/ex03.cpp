@@ -11,9 +11,11 @@ int main()
     }
 
     // "\n" means hold a new line
-    std::cout << n1 * n1 << "\n";
+    std::cout << "Format I \n" << n1 * n1 << "\n";
 
     // While-loop 2
+
+    std::cout << "Format II" << "\n"; 
     while (n2 > 0) {
         n2 /= 2;
         // "\t" means hold a tab
