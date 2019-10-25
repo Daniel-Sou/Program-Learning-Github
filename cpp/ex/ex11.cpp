@@ -8,6 +8,9 @@ using namespace std;
 
 int sum_from_to(int first, int last);
 
+// Show the natural numbers
+void show_num(int first, int last);
+
 int main() {
     int first, last;
 
@@ -16,7 +19,10 @@ int main() {
     cout << "Please put the last value >> " << endl;
     cin >> last;
 
+    
     cout << "\n" << first << "..." << last << endl;
+    show_num(first, last);
+    cout << "The sum of them >> ";
     cout << sum_from_to(first, last) << "\n" << endl;
 
     cout << sum_from_to(4, 7) << "\n";
@@ -48,4 +54,24 @@ int sum_from_to(int first, int last)
     }
 
     return sum;
+}
+
+void show_num(int first, int last) {
+    if (first < last) {
+        for (int i = first; i <= last; i++) {
+            cout << i;
+            if (i != last) {
+                cout << " + ";
+            }
+        }
+    } else {
+        for (int i = first; i >= last; i--) {
+            cout << i;
+            if (i != last) {
+                cout << " + ";
+            }
+        }
+    }
+
+    cout << endl;
 }
