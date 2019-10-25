@@ -5,6 +5,7 @@ This is C++ Note. The course is ISOM3029.
 
 ## Program Structure
 
+Format I.
 ```cpp
 
 #include <iostream>
@@ -17,4 +18,22 @@ int main() {
 
 }
 
+```
+
+Format II.
+
+``` cpp
+#include <stdlib.h>
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    int i,a = 10;
+
+    int newNum = 10 + ++i;
+
+    cout << ++a << "\n";
+    cout << "Result is " << newNum << endl;
+}
 ```
