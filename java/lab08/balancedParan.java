@@ -1,3 +1,4 @@
+// Lab 08 Stacks
 // Java program for checking 
 // balanced Parenthesis 
 
@@ -88,7 +89,7 @@ public class balancedParan {
 	  /* If there is something left in expression 
 		then there is a starting parenthesis without 
 		a closing parenthesis */
-    
+
     if (st.isEmpty()) {
       return true; // Balanced
     } else {
