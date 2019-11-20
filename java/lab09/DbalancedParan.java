@@ -2,33 +2,63 @@
 // Java program for checking 
 // balanced Parenthesis using Dynamic Stack
 
-public class balancedParan {
+public class DbalancedParan {
   static class stack {
     // Constructor function
-    int top = -1;
-    char items[] = new char[100];
+    int capacity = 2;
+    char items[] = new char[capacity];
+    int top = 0;
 
-    void push(char x) {
-      if (top == 99) {
-        System.out.println("Stack full");
-      } else {
-        items[++top] = x;
-      }
+    public int size() {
+      return top;
     }
 
+    void push(char x) {
+      if (size() >= capacity) {
+        expand();
+      }
+      
+      items[top] = x;
+      top ++;
+    }
+
+    // Imprement the Dynamic Array to Array Stack
+  private void expand() {
+    int length = size();
+    char newStack[] = new char[capacity * 2];
+
+    // Important >> Arraycopy
+    System.arraycopy(items, 0, newStack, 0, length);
+    items = newStack;
+    capacity *= 2;
+  }
+
     char pop() {
-      if (top == -1) {
+      if (top == 0) {
         System.out.println("Underflow error");
         return '\0';
       } else {
         char element = items[top];
         top --;
+        shrink();
+
         return element;
       }
     }
 
+    private void shrink() {
+      int length = size();
+      if (length <= (capacity / 2) / 2) {
+        capacity = capacity / 2;
+      }
+
+      char newStack[] = new char[capacity];
+      System.arraycopy(items, 0, newStack, 0, length);
+      items = newStack;
+    }
+
     boolean isEmpty() {
-      return (top == -1) ? true : false;
+      return (top == 0) ? true : false;
     }
   }  
 
