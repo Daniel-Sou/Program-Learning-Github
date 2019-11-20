@@ -19,7 +19,12 @@ Reimplement the ArrayStack class using dynamic arrays to support unlimited capac
 [ ] -> [ ] ->  [ ]
 ```
 
+If implement the dynamic ArrayStack,
+use `expand()`, `shrink()`
+
+---
 [Submission Guideline] 
+
 Please submit .java file to UMMoodle.
 Do not copy your classmate’s codes, otherwise both of you will lose scores.
 Submission deadline: 11:50 p.m., 20/11/2019. (It will be better if you can submit

@@ -4,12 +4,23 @@ public class DynamicStack {
   int top = 0;
 
   public void push(int data) {
-    if (top == 5) {
-      System.out.println("Stack is full");      
-    } else {
+      if(size() == capacity) {
+        expand();
+      }
+
       stack[top] = data;
       top ++;
-    }
+  }
+
+  // Imprement the Dynamic Array to Array Stack
+  private void expand() {
+    int length = size();
+    int newStack[] = new int[capacity * 2];
+
+    // Important >> Arraycopy
+    System.arraycopy(stack, 0, newStack, 0, length);
+    stack = newStack;
+    capacity *= 2;
   }
 
   public int pop() {
@@ -21,9 +32,21 @@ public class DynamicStack {
       top --;
       data = stack[top];
       stack[top] = 0;
+      shrink();
     }
 
     return data;
+  }
+
+  private void shrink() {
+    int length = size();
+    if (length <= (capacity / 2) / 2) {
+      capacity = capacity / 2;
+    }
+
+    int newStack[] = new int[capacity];
+    System.arraycopy(stack, 0, newStack, 0, length);
+    stack = newStack;
   }
 
   public int peek() {
@@ -50,7 +73,7 @@ public class DynamicStack {
   }
 
   public static void main(String[] args) {
-    Stack nums = new Stack();
+    DynamicStack nums = new DynamicStack();
 
     nums.push(15);
     nums.show();
@@ -58,14 +81,18 @@ public class DynamicStack {
     nums.show();
     nums.push(10);
     nums.show();
+    nums.push(10);
+    nums.show();
+    nums.push(10);
+    nums.show();
 
     System.out.println();
     
-    System.out.println(nums.pop());
-    System.out.println(nums.pop());
-    System.out.println(nums.pop());
-    System.out.println(nums.size());
-    System.out.println(nums.pop());
+    System.out.println("The 1st number pop out is " + nums.pop());
+    System.out.println("The 2nd number pop out is " + nums.pop());
+    System.out.println("The 3rd number pop out is " + nums.pop());
+    System.out.println("The size is " + nums.size());
+    System.out.println("The 4th number pop out is " + nums.pop());
 
   }
 
