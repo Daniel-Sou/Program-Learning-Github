@@ -21,3 +21,9 @@ public E
 
 ## Implementing a Queue with a Singly Linked List
 
+```
+Head                        Tail
+[ ][x] ->   [ ][ ] ->     [ ][x]
+"                         "
+```
+
