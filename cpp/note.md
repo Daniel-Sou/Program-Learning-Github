@@ -3,6 +3,11 @@ This is C++ Note. The course is ISOM3029.
 
 ## Project
 
+## Exam Structure
+1. A -> True / False
+2. B -> MC
+3. C -> Code Writing
+
 ## Program Structure
 
 Format I.
