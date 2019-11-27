@@ -244,6 +244,10 @@ Inorder traversal of expression tree produces infix version of given postfix exp
 
 ## [Submission Guideline] 
 Please submit .java file to UMMoodle.
+
 Do not copy your classmate’s codes, otherwise both of you will lose scores.
-Submission deadline: 11:50 p.m., 27/11/2019. (It will be better if you can submit
+
+Submission deadline: 11:50 p.m., 27/11/2019. 
+
+(It will be better if you can submit
 at the end of this lab.)
