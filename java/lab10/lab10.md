@@ -45,7 +45,7 @@ class Node {
 	} 
 } 
 
-class ExpressionTree { 
+public class ExpressionTree { 
 
 	// A utility function to check if 'c' 
 	// is an operator 
@@ -131,6 +131,7 @@ Using inorder to print out the arithmetic expressions in binary tree.
 
 Code for different tree traversals
 ```java
+// BinaryTree.java
 // Java program for different tree traversals 
 
 /* Class containing left and right child of current 
@@ -147,7 +148,7 @@ class Node
 	} 
 } 
 
-class BinaryTree 
+public class BinaryTree 
 { 
 	// Root of Binary Tree 
 	Node root; 
