@@ -1,4 +1,4 @@
-# C++ Class
+# C++ Class and Object Oriented Programming
 
 ## Object
 1. Student ID
