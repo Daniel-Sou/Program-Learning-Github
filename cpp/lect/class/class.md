@@ -18,3 +18,10 @@ TV
 - TV.setChannel
 
 TV2 = TV1
+
+## Compile section
+In the compile part, must compile all the .cpp file
+```
+>> g++ aaa.cpp bbb.cpp -o rename
+>> ./rename
+```
