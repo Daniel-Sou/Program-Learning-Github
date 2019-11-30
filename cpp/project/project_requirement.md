@@ -23,7 +23,17 @@ Please do let the user choose:
 
 - Age for Macau (if Age >= 65, then exemption amount is different)
 
-Also, do allow user to enter income amount in (HKD, MOP, and USD) and exchange rates between USD and HKD as well as USD and MOP.  All the tax bracket (tax rates) already provided in the documents that I sent to you before or you can find them at some government website.  
+Also, do allow user to enter income amount in (HKD, MOP, and USD) and exchange rates between USD and HKD as well as USD and MOP.  
+
+![image](https://i.loli.net/2019/11/30/UBcwpnvaIFPYKMf.png)   
+
+Tax in Hong Kong
+
+![image](https://i.loli.net/2019/11/30/VP8RvjhGCobxfdM.png)
+
+Tax in Macau
+
+All the tax bracket (tax rates) already provided in the documents that I sent to you before or you can find them at some government website.  
 
 Please do also search for additional information to improve your system as close as possible to the actual situation in the real world, for example, for total income less than a certain level, no global taxing will be charged. 
 
@@ -33,3 +43,15 @@ Also, on your code, please use the proper format, like indentation, and do make 
 
 ## Bonus Point
 For the bonus point part, please create an APP for your Global Tax Calculation, do pay attention to the user interface design for user to conveniently input their data and read the output.
+
+## 工作分配
+浩:
+
+## Additional information
+![image](https://i.loli.net/2019/11/30/UBcwpnvaIFPYKMf.png)   
+
+Tax in Hong Kong
+
+![image](https://i.loli.net/2019/11/30/VP8RvjhGCobxfdM.png)
+
+Tax in Macau
