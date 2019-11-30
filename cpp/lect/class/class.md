@@ -19,6 +19,26 @@ TV
 
 TV2 = TV1
 
+## Example - The Circle Class
+### Object
+1. dobule Radius
+2. string Color
+
+### Behavior
+1. void Circle()
+2. double getRadius()
+3. void setRadius()
+4. string getColor()
+
+### Compile
+```shell
+$ g++ TestCircle.cpp Circle.cpp -o circle
+
+$ ./circle
+> Done
+
+```
+
 ## Compile section
 In the compile part, must compile all the .cpp file
 ```
