@@ -1,3 +1,4 @@
+
 #include <iostream>
 using namespace std;
 
@@ -18,7 +19,6 @@ double CalHKTax(double TaxableIncomeHKD)
 		taxHKD = 50000 * 0.02 + 50000 * 0.06 + 50000 * 0.1 + 50000 * 0.14 + (TaxableIncomeHKD - 200000) * 0.17;
 	return taxHKD;
 }
-
 double CalMOTax(double TaxableIncomeMOP)
 {
 	double taxMOP = 0;
@@ -38,7 +38,25 @@ double CalMOTax(double TaxableIncomeMOP)
 		taxMOP = TaxableIncomeMOP * 0.12;
 	return taxMOP;
 }
-
+double CalMOTax65(double TaxableIncomeMOP)
+{
+	double taxMOP = 0;
+	if (TaxableIncomeMOP <= 0)
+		taxMOP = 0;
+	else if (TaxableIncomeMOP <= 218000)
+		taxMOP = TaxableIncomeMOP * 0.07;
+	else if (TaxableIncomeMOP <= 238000)
+		taxMOP = TaxableIncomeMOP * 0.08;
+	else if (TaxableIncomeMOP <= 278000)
+		taxMOP = TaxableIncomeMOP * 0.09;
+	else if (TaxableIncomeMOP <= 358000)
+		taxMOP = TaxableIncomeMOP * 0.10;
+	else if (TaxableIncomeMOP <= 478000)
+		taxMOP = TaxableIncomeMOP * 0.11;
+	else
+		taxMOP = TaxableIncomeMOP * 0.12;
+	return taxMOP;
+}
 double CalUSATax(double incomeUSD)
 {
 	double taxUSDinUSA = 0;
@@ -66,6 +84,7 @@ double CalUSATax(double incomeUSD)
 int main()
 {
 		int ans;
+		char NR;
 		double incomeHKD;
 		double incomeUSD;
 		double incomeMOP;
@@ -85,6 +104,7 @@ int main()
 		if (ans == 1)
 
 		{
+			//For someone who holds US citizenship or green card, and have income in HK
 			cout << "Enter your income in HKD: ";
 			cin >> incomeHKD;
 			cout << "Enter Exchange Rate between HKD and USD: ";
@@ -101,12 +121,22 @@ int main()
 		}
 		else
 		{
+			int age;
+			cout << "Please enter your age: ";
+			cin >> age;
 			cout << "Enter your income in MOP: ";
 			cin >> incomeMOP;
 			cout << "Enter Exchange Rate between MOP and USD: ";
 			cin >> USDMOPExchangeRate;
 			incomeUSD = incomeMOP / USDMOPExchangeRate;
-			taxMOP = CalMOTax(incomeMOP);
+			if (age < 65)
+			{
+				taxMOP = CalMOTax(incomeMOP);
+			}
+			else
+			{
+				taxMOP = CalMOTax65(incomeMOP);
+			}
 			TaxableIncomeMOP = taxMOP / USDMOPExchangeRate;
 			cout << "MOP Tax in MACAU is " << static_cast<int>(taxMOP * 100) / 100.0 << endl;
 			cout << "USD Tax in MACAU is " << static_cast<int>(TaxableIncomeMOP * 100) / 100.0 << endl;
@@ -115,14 +145,24 @@ int main()
 			GlobalTax = taxUSDinUSA - TaxableIncomeMOP;
 
 		}
-				
+		
+		cout << "Select your Nationality or region(HK = H, MACAU = M, US = U, HK&US /MO&US = B): ";
+		cin >> NR;
 		if (GlobalTax <= 0.0)
-	{
-		cout << "you do not need to pay global tax" << endl;
-	}
-	else
-		cout << "Your Global Tax is:" << GlobalTax << " Dollars" << endl;
-
+		{
+			cout << "you do not need to pay global tax" << endl;
+		}
+		else
+		{
+			if (NR == 'B')
+			{
+				cout << "Your Global Tax is:" << GlobalTax << "Dollars" << endl;
+			}
+			else
+			{
+				cout << "you do not need to pay global tax" << endl;
+			}
+		}
 	return 0;
 }
 
