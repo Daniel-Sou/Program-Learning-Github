@@ -5,8 +5,7 @@ Our group will send the code of C++ about the project later. Besides, I will mak
 Group member:
 - SOU CHON WAI, BB702722
 - YE ZHI HAO, BB702031
--       
-
+- LONG TO BB701052     
    
 ISOM3029 Group Project - C++ Code - GitHub   
 https://github.com/Daniel-Sou/Program-Learning-Github/tree/master/cpp/project
