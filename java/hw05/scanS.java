@@ -3,7 +3,7 @@ import java.util.*; // Imports everything inside java.util package
 public class scanS{
   // class of queue
   static class QueueObj {
-    Stack<Integer> s;
+    Stack<Integer> stackq;
 
 
   }
@@ -41,8 +41,29 @@ public class scanS{
         // Recursively call the function printStack
         printStack(s);
 
-        // Print the stack element
+        // Print the stack element starting from the bottom
+        System.out.print(x + "\t");
 
+        // Push the same element onto the stack to preserve the order
+        s.push(x);
+    }
+
+    // Funtion to enqueue an item to the queue
+    static void enqueue(QueueObj q, int x) {
+        push(q.stackq, x);
+    }
+
+    // Function to dequeue an item from the queue
+    static int dequeue(QueueObj q) {
+        int x;
+
+        // If stacks are empty then error
+        if(q.stackq.isEmpty()) {
+            System.out.print("Q is empty");
+            System.exit(0); // Exit the program
+        }
+
+        // Move elements from 
     }
 
     // Main function
