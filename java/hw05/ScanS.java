@@ -1,22 +1,6 @@
-import java.util.*;
+import java.util.Stack;
 
-class Stack {
-  private int arr[];
-  private int front; // Front point to front element in the queue
-  private int rear;
-  private int capacity;
-  private int count;
-
-  Stack(int size) {
-    this.arr = new int[size];
-    this.capacity = size;
-    this.front = 0; 
-    this.rear = -1;
-    this.count = 0;
-  }
-}
-
-public class Queue {
+public class ScanS {
   private int arr[];
   private int front; // Front point to front element in the queue
   private int rear;
@@ -24,7 +8,7 @@ public class Queue {
   private int count;
 
   // Constructor function
-  Queue(int size) {
+  ScanS(int size) {
     arr = new int[size];
     capacity = size;
     front = 0; 
@@ -57,7 +41,7 @@ public class Queue {
       System.exit(0);
     }
 
-    System.out.println("Inserting " + item);
+    System.out.println("Removing " + arr[front]);
 
     rear = (rear + 1) % capacity;
     arr[rear] = item;
@@ -90,7 +74,7 @@ public class Queue {
   }
 
   // Stack function
-  static void printStack(Stack s) {
+  static void printStack(Stack<Integer> s) {
     // If stack is empty then return
     if(s.isEmpty()){
       return;
@@ -112,9 +96,10 @@ public class Queue {
   }
 
   // scan S to see if it contains a certain element x
-  public static boolean scan(Stack s, int x){
+  public static boolean scan(Stack<Integer> s, int x){
+    
     // Create a queue
-    Queue q = new Queue(s.size());
+    ScanS q = new ScanS(s.size());
 
     //
     boolean found = false;
@@ -142,15 +127,13 @@ public class Queue {
 
   // Main driver function
   public static void main(String[] args) {
-    // Create a queue of capacity of 5
     // Queue q = new Queue(5);
 
     // Stack s
-    Stack s = new Stack(10);
+    Stack<Integer> s = new Stack<Integer>();
 
-    System.out.println(scan(s,3));
-
-    printStack(s);
+    // Create a queue of capacity of 5
+    ScanS q = new ScanS(s.size());
 
     s.push(5);
     s.push(9);
@@ -158,14 +141,10 @@ public class Queue {
     s.push(3);
     s.push(0);
     
+
+    printStack(s);
+
     System.out.println(scan(s, 3));
-
-    printStack(s);
-
-    System.out.println(scan(s,13));
-
-    printStack(s);
-
 
     /***
     q.enqueue(1);
