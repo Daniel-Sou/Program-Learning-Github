@@ -78,3 +78,19 @@ Tax in Macau
 466950美元以上，税率39.6%  
 
 美国的个税税率采取的是大部分国家通用的累进税制，以夫妻合并报税为例，家庭年收入在18550美元以下的，税率为10%；收入在18551美元到75300美元之间的，税率15%。需要指出的是，收入在18551美元以上的家庭，并非所有收入全部按15%计算，其中18550美元按10%税率计算，超过部分才按15%的标准计算。
+
+Sample Code:
+```cpp
+# include <iostream.h>
+
+using name space std;
+void main ()
+( 
+    string answer1,answer2,reply
+    answer1=yes
+    answer2=np
+    cout<<"Are you married? if so would you like to report your tax with your husband or wife?\n\n:";
+    cin>>reply;
+    if((reply==answer1) || (reply==answer2))
+}
+```
