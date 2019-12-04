@@ -161,16 +161,21 @@ int main()
 			{
 				taxMOP = CalMOTax65(incomeMOP);
 			}
+
 			TaxableIncomeMOP = taxMOP / USDMOPExchangeRate;
+			
 			cout << "MOP Tax in MACAU is " << static_cast<int>(taxMOP * 100) / 100.0 << endl;
+			
 			cout << "USD Tax in MACAU is " << static_cast<int>(TaxableIncomeMOP * 100) / 100.0 << endl;
+			
 			taxUSDinUSA = CalUSATax(incomeUSD);
-            string answer1,answer2,reply
+            
+						string answer1,answer2,reply
             answer1=yes
             answer2=np
             cout<<"Are you married? if so would you like to report your tax with your husband or wife?\n\n:";
             if((reply==answer1) || (reply==answer2))
-            cout << "Tax in USA is " << static_cast<int>(taxUSDinUSA * 100) / 100.0 << endl;
+            	cout << "Tax in USA is " << static_cast<int>(taxUSDinUSA * 100) / 100.0 << endl;
 			GlobalTax = taxUSDinUSA - TaxableIncomeMOP;
 			  )else(
 			  cout << "Tax in USA is " << static_cast<int>(taxUSDinUSA * 100) / 100.0 << endl;
