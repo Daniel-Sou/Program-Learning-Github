@@ -1,131 +1,129 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Tax Calculator</title>
-    <meta name="codelab" content="your-first-pwa-v3">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#2F3BA2" />
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Global Tax Calculator</title>
+	<meta name="codelab" content="your-first-pwa-v3">
+	<link rel="manifest" href="/manifest.json">
+	<meta name="theme-color" content="#2F3BA2" />
+	<style>
+		* {
+			box-sizing: border-box;
+		}
 
-        html,
-        body {
-            color: #444;
-            font-family: 'Helvetica', 'Verdana', sans-serif;
-            -moz-osx-font-smoothing: grayscale;
-            -webkit-font-smoothing: antialiased;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            width: 100%;
-        }
+		html,
+		body {
+			color: #444;
+			font-family: 'Helvetica', 'Verdana', sans-serif;
+			-moz-osx-font-smoothing: grayscale;
+			-webkit-font-smoothing: antialiased;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+		}
 
-        html {
-            overflow: hidden;
-        }
+		html {
+			overflow: hidden;
+		}
 
-        body {
-            align-content: stretch;
-            align-items: stretch;
-            background: #ececec;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            justify-content: flex-start;
-        }
+		body {
+			align-content: stretch;
+			align-items: stretch;
+			background: #ececec;
+			display: flex;
+			flex-direction: column;
+			flex-wrap: nowrap;
+			justify-content: flex-start;
+		}
 
-        /**
+		/**
     * Header
     */
 
-        .header {
-            align-content: center;
-            align-items: stretch;
-            background: #3f51b5;
-            box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
-                0 2px 9px 1px rgba(0, 0, 0, 0.12),
-                0 4px 2px -2px rgba(0, 0, 0, 0.2);
-            color: #fff;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            font-size: 20px;
-            height: 56px;
-            justify-content: flex-start;
-            padding: 16px 16px 0 16px;
-            position: fixed;
-            transition: transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
-            width: 100%;
-            will-change: transform;
-            z-index: 1000;
-        }
+		.header {
+			align-content: center;
+			align-items: stretch;
+			background: #3f51b5;
+			box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+			0 2px 9px 1px rgba(0, 0, 0, 0.12),
+			0 4px 2px -2px rgba(0, 0, 0, 0.2);
+			color: #fff;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			font-size: 20px;
+			height: 56px;
+			justify-content: flex-start;
+			padding: 16px 16px 0 16px;
+			position: fixed;
+			transition: transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
+			width: 100%;
+			will-change: transform;
+			z-index: 1000;
+		}
 
-        .header h1 {
-            flex: 1;
-            font-size: 20px;
-            font-weight: 400;
-            margin: 0;
-        }
+		.header h1 {
+			flex: 1;
+			font-size: 20px;
+			font-weight: 400;
+			margin: 0;
+		}
 
-        .header .powered-by {
-            color: white;
-            font-size: 0.6em;
-            text-decoration: none;
-        }
+		.header .powered-by {
+			color: white;
+			font-size: 0.6em;
+			text-decoration: none;
+		}
 
-        .main {
-            flex: 1;
-            overflow-x: hidden;
-            overflow-y: auto;
-            padding-top: 60px;
-        }
+		.main {
+			flex: 1;
+			overflow-x: hidden;
+			overflow-y: auto;
+			padding-top: 60px;
+		}
 
-        .weather-card {
-            background: #fff;
-            border-radius: 2px;
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-                0 3px 1px -2px rgba(0, 0, 0, 0.2),
-                0 1px 5px 0 rgba(0, 0, 0, 0.12);
-            box-sizing: border-box;
-            margin: 16px;
-            padding: 16px;
-            position: relative;
-        }
+		.weather-card {
+			background: #fff;
+			border-radius: 2px;
+			box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+			0 3px 1px -2px rgba(0, 0, 0, 0.2),
+			0 1px 5px 0 rgba(0, 0, 0, 0.12);
+			box-sizing: border-box;
+			margin: 16px;
+			padding: 16px;
+			position: relative;
+		}
 
-        .offline-panda {
-            display: block;
-            margin-bottom: 1.5em;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		.offline-panda {
+			display: block;
+			margin-bottom: 1.5em;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	</style>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	 crossorigin="anonymous">
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+	 crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+	 crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+	 crossorigin="anonymous">
+	</script>
 </head>
 
 <body>
-    <script src="scripts/script.js"></script>
-
-    <header class="header">
-        <h1>
-            ISOM3029 Global Tax calculation
-        </h1>
-        <button id="butInstall" aria-label="Install" hidden></button>
+	<header class="header">
+		<h1>
+			ISOM3029 Global Tax calculation
+		</h1>
+		<button id="butInstall" aria-label="Install" hidden></button>
 
     </header>
 
@@ -256,6 +254,9 @@
         </nav>
 
     </main>
+
+    	<script src="scripts/script.js">
+	</script>
 </body>
 
 </html>
