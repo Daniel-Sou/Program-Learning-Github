@@ -61,23 +61,47 @@ double CalUSATax(double incomeUSD)
 {
 	double taxUSDinUSA = 0;
 	// Compute tax for single filers
-	if (incomeUSD <= 9525)
+	if (incomeUSD <= 9275)
 		taxUSDinUSA = incomeUSD * 0.10;
-	else if (incomeUSD <= 38700)
-		taxUSDinUSA = 9525 * 0.10 + (incomeUSD - 9525) * 0.12;
-	else if (incomeUSD <= 82500)
-		taxUSDinUSA = 9525 * 0.10 + (38700 - 9525) * 0.12 + (incomeUSD - 38700) * 0.22;
-	else if (incomeUSD <= 157500)
-		taxUSDinUSA = 9525 * 0.10 + (38700 - 9525) * 0.12 + (82500 - 38700) * 0.22 + (incomeUSD - 82500) * 0.24;
-	else if (incomeUSD <= 200000)
-		taxUSDinUSA = 9525 * 0.10 + (38700 - 9525) * 0.12 + (82500 - 38700) * 0.22 + (157000 - 82500) * 0.24
-		+ (incomeUSD - 157500) * 0.32;
-	else if (incomeUSD <= 500000)
-		taxUSDinUSA = 9525 * 0.10 + (38700 - 9525) * 0.12 + (82500 - 38700) * 0.22 + (157000 - 82500) * 0.24
-		+ (200000 - 157500) * 0.32 + (incomeUSD - 200000) * 0.35;
+	else if (incomeUSD <= 37650)
+		taxUSDinUSA = 9275 * 0.10 + (incomeUSD - 9525) * 0.15;
+	else if (incomeUSD <= 91150)
+		taxUSDinUSA = 9275 * 0.10 + (37650 - 9525) * 0.15 + (incomeUSD - 38700) * 0.25;
+	else if (incomeUSD <= 190150)
+		taxUSDinUSA = 9275 * 0.10 + (37650 - 9525) * 0.15 + (91150 - 37650) * 0.25 + (incomeUSD - 91150) * 0.28;
+	else if (incomeUSD <= 411350)
+		taxUSDinUSA = 9275 * 0.10 + (37650 - 9525) * 0.15 + (91150 - 37650) * 0.25 + (190150 - 91150) * 0.28
+		+ (incomeUSD - 190150) * 0.33;
+	else if (incomeUSD <= 415050)
+		taxUSDinUSA = 9275 * 0.10 + (37650 - 9525) * 0.15 + (91150 - 37650) * 0.25 + (190150 - 91150) * 0.28
+		+ (411350 - 190150) * 0.33 + (incomeUSD - 411350) * 0.35;
 	else
-		taxUSDinUSA = 9525 * 0.10 + (38700 - 9525) * 0.12 + (82500 - 38700) * 0.22 + (157000 - 82500) * 0.24
-		+ (200000 - 157500) * 0.32 + (500000 - 200000) * 0.35 + (incomeUSD - 500000) * 0.37;
+		taxUSDinUSA = 9275 * 0.10 + (37650 - 9525) * 0.15 + (91150 - 37650) * 0.25 + (190150 - 91150) * 0.28
+		+ (411350 - 190150) * 0.33 + (500000 - 411350) * 0.35 + (incomeUSD - 500000) * 0.396;
+	return taxUSDinUSA;
+}
+
+double CalUSAMarriedTax(double incomeUSD)
+{
+	double taxUSDinUSA = 0;
+	// Compute tax for married filers
+	if (incomeUSD <= 18550)
+		taxUSDinUSA = incomeUSD * 0.10;
+	else if (incomeUSD <= 75300)
+		taxUSDinUSA = 18550 * 0.10 + (incomeUSD - 18550) * 0.15;
+	else if (incomeUSD <= 151900)
+		taxUSDinUSA = 18550 * 0.10 + (75300 - 18550) * 0.15 + (incomeUSD - 75300) * 0.25;
+	else if (incomeUSD <= 231450)
+		taxUSDinUSA = 18550 * 0.10 + (75300 - 18550) * 0.15 + (151900 - 75300) * 0.25 + (incomeUSD - 151900) * 0.28;
+	else if (incomeUSD <= 413350)
+		taxUSDinUSA = 18550 * 0.10 + (75300 - 18550) * 0.15 + (151900 - 75300) * 0.25 + (231450 - 151900) * 0.28
+		+ (incomeUSD - 231450) * 0.33;
+	else if (incomeUSD <= 466950)
+		taxUSDinUSA = 18550 * 0.10 + (75300 - 18550) * 0.15 + (151900 - 75300) * 0.25 + (231450 - 151900) * 0.28
+		+ (413350 - 231450) * 0.33 + (incomeUSD - 413350) * 0.35;
+	else
+		taxUSDinUSA = 18550 * 0.10 + (75300 - 18550) * 0.15 + (151900 - 75300) * 0.25 + (231450 - 151900) * 0.28
+		+ (413350 - 231450) * 0.33 + (466950 - 413350) * 0.35 + (incomeUSD - 466950) * 0.396;
 	return taxUSDinUSA;
 }
 
@@ -97,10 +121,10 @@ int main()
 		double taxUSDinUSA;
 		double TaxableIncomeMOP;
 		double GlobalTax;
-		
+
 		cout << "Please select the settlement currency of your income(HKD = 1, MOP = 2): ";
 		cin >> ans;
-		
+
 		if (ans == 1)
 
 		{
@@ -141,11 +165,18 @@ int main()
 			cout << "MOP Tax in MACAU is " << static_cast<int>(taxMOP * 100) / 100.0 << endl;
 			cout << "USD Tax in MACAU is " << static_cast<int>(TaxableIncomeMOP * 100) / 100.0 << endl;
 			taxUSDinUSA = CalUSATax(incomeUSD);
-			cout << "Tax in USA is " << static_cast<int>(taxUSDinUSA * 100) / 100.0 << endl;
+            string answer1,answer2,reply
+            answer1=yes
+            answer2=np
+            cout<<"Are you married? if so would you like to report your tax with your husband or wife?\n\n:";
+            if((reply==answer1) || (reply==answer2))
+            cout << "Tax in USA is " << static_cast<int>(taxUSDinUSA * 100) / 100.0 << endl;
 			GlobalTax = taxUSDinUSA - TaxableIncomeMOP;
-
+			  )else(
+			  cout << "Tax in USA is " << static_cast<int>(taxUSDinUSA * 100) / 100.0 << endl;
+			GlobalTax = taxUSDinUSA - TaxableIncomeMOP;
 		}
-		
+
 		cout << "Select your Nationality or region(HK = H, MACAU = M, US = U, HK&US /MO&US = B): ";
 		cin >> NR;
 		if (GlobalTax <= 0.0)
