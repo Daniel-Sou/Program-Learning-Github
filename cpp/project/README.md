@@ -14,14 +14,14 @@ SOU CHON WAI, BB702722
 YE ZHI HAO, BB702031
 LONG TO BB701052
 
-ISOM3029 Group Project - C++ Code - GitHub
+ISOM3029 Group Project - C++ Code - GitHub  
 https://github.com/Daniel-Sou/Program-Learning-Github/tree/master/cpp/project
 
-ISOM3029 Group Project - WebApp Version
-Performance part: 
+ISOM3029 Group Project - WebApp Version  
+Performance part:   
 https://daniel-sou.github.io/Global-Taxing/
 
-Code Part:
+Code Part:   
 https://github.com/Daniel-Sou/Global-Taxing
 
 Best regards
