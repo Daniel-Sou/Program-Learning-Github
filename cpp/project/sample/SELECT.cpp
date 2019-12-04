@@ -108,6 +108,9 @@ double CalUSAMarriedTax(double incomeUSD)
 int main()
 {
 		int ans;
+		char answeryes = '1';
+		int answerno = '0';
+		int reply;
 		char NR;
 		double incomeHKD;
 		double incomeUSD;
@@ -140,7 +143,22 @@ int main()
 			cout << "USD Tax in Hong Kong is " << static_cast<int>(TaxableIncomeHKD * 100) / 100.0 << endl;
 			taxUSDinUSA = CalUSATax(incomeUSD);
 			cout << "Tax in USA is " << static_cast<int>(taxUSDinUSA * 100) / 100.0 << endl;
-			GlobalTax = taxUSDinUSA - TaxableIncomeHKD;
+
+			taxUSDinUSA = CalUSATax(incomeUSD);
+
+            cout<<"Are you married?(yes=1, no=0)ans: ";
+            cin >> reply;
+
+            if((reply == answeryes)||(reply == answerno))
+            {
+                cout << "Tax in USA is " << static_cast<int>(taxUSDinUSA * 100) / 100.0 << endl;
+                GlobalTax = taxUSDinUSA - TaxableIncomeHKD;
+            }
+            else
+            {
+                cout << "Tax in USA is " << static_cast<int>(taxUSDinUSA * 100) / 100.0 << endl;
+                GlobalTax = taxUSDinUSA - TaxableIncomeHKD;
+            }
 
 		}
 		else
@@ -163,23 +181,24 @@ int main()
 			}
 
 			TaxableIncomeMOP = taxMOP / USDMOPExchangeRate;
-			
 			cout << "MOP Tax in MACAU is " << static_cast<int>(taxMOP * 100) / 100.0 << endl;
-			
 			cout << "USD Tax in MACAU is " << static_cast<int>(TaxableIncomeMOP * 100) / 100.0 << endl;
-			
+
 			taxUSDinUSA = CalUSATax(incomeUSD);
-            
-						string answer1,answer2,reply
-            answer1=yes
-            answer2=np
-            cout<<"Are you married? if so would you like to report your tax with your husband or wife?\n\n:";
-            if((reply==answer1) || (reply==answer2))
-            	cout << "Tax in USA is " << static_cast<int>(taxUSDinUSA * 100) / 100.0 << endl;
-			GlobalTax = taxUSDinUSA - TaxableIncomeMOP;
-			  )else(
-			  cout << "Tax in USA is " << static_cast<int>(taxUSDinUSA * 100) / 100.0 << endl;
-			GlobalTax = taxUSDinUSA - TaxableIncomeMOP;
+
+            cout<<"Are you married?(yes=1, no=0)ans: ";
+            cin >> reply;
+
+            if((reply == answeryes)||(reply == answerno))
+            {
+                cout << "Tax in USA is " << static_cast<int>(taxUSDinUSA * 100) / 100.0 << endl;
+                GlobalTax = taxUSDinUSA - TaxableIncomeMOP;
+            }
+            else
+            {
+                cout << "Tax in USA is " << static_cast<int>(taxUSDinUSA * 100) / 100.0 << endl;
+                GlobalTax = taxUSDinUSA - TaxableIncomeMOP;
+            }
 		}
 
 		cout << "Select your Nationality or region(HK = H, MACAU = M, US = U, HK&US /MO&US = B): ";
