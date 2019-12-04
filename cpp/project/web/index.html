@@ -1,0 +1,261 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Tax Calculator</title>
+    <meta name="codelab" content="your-first-pwa-v3">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2F3BA2" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            color: #444;
+            font-family: 'Helvetica', 'Verdana', sans-serif;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        html {
+            overflow: hidden;
+        }
+
+        body {
+            align-content: stretch;
+            align-items: stretch;
+            background: #ececec;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+        }
+
+        /**
+    * Header
+    */
+
+        .header {
+            align-content: center;
+            align-items: stretch;
+            background: #3f51b5;
+            box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+                0 2px 9px 1px rgba(0, 0, 0, 0.12),
+                0 4px 2px -2px rgba(0, 0, 0, 0.2);
+            color: #fff;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            font-size: 20px;
+            height: 56px;
+            justify-content: flex-start;
+            padding: 16px 16px 0 16px;
+            position: fixed;
+            transition: transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
+            width: 100%;
+            will-change: transform;
+            z-index: 1000;
+        }
+
+        .header h1 {
+            flex: 1;
+            font-size: 20px;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .header .powered-by {
+            color: white;
+            font-size: 0.6em;
+            text-decoration: none;
+        }
+
+        .main {
+            flex: 1;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding-top: 60px;
+        }
+
+        .weather-card {
+            background: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                0 3px 1px -2px rgba(0, 0, 0, 0.2),
+                0 1px 5px 0 rgba(0, 0, 0, 0.12);
+            box-sizing: border-box;
+            margin: 16px;
+            padding: 16px;
+            position: relative;
+        }
+
+        .offline-panda {
+            display: block;
+            margin-bottom: 1.5em;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script src="scripts/script.js"></script>
+
+    <header class="header">
+        <h1>
+            ISOM3029 Global Tax calculation
+        </h1>
+        <button id="butInstall" aria-label="Install" hidden></button>
+
+    </header>
+
+    <main class="main">
+
+        <!--
+  <div class="weather-card">
+    <div class="col1">
+      <label for="income-mop"> MOP Income >> </label>
+    </div>
+    <div class="col2">
+      <input type="number" name="income" min="0" id="income-mop" required> <br>
+    </div>
+  </div>
+-->
+
+
+        <div class="weather-card">
+            <div class="col1">
+                <label for="wealth"> MOP Wealth >> </label>
+            </div>
+            <div class="col2">
+                <input type="number" name="wealth" min="0" id="wealth" required> <br>
+            </div>
+        </div>
+
+        <div class="weather-card">
+            <div class="col1">
+                <label for="wealth"> MOP / USD Exchange Rate >> </label>
+            </div>
+            <div class="col2">
+                <input type="number" name="mopex" min="1" id="mopex" required> <br>
+            </div>
+        </div>
+
+        <div class="weather-card">
+            <div class="col1">
+                <label for="income-hkd"> HKD Income >> </label>
+            </div>
+            <div class="col2">
+                <input type="number" name="income" min="0" id="income-hkd" required> <br>
+            </div>
+        </div>
+
+        <!--
+  <div class="weather-card">
+    <div class="row">
+      <div class="col1">
+        <input type="button" value="=" onclick="solve()" />
+      </div>
+    </div>
+  </div>
+  -->
+
+        <!--
+  <div id="about" class="weather-card">
+    <div class="row">
+      <div class="col1">
+        <b for="tax"> TOTAL TAX >> </b>
+      </div>
+      <dov class="row2">
+        <input type="number" name="tax" min="0" id="tax" disabled> <br>
+      </dov>
+    </div>
+  </div>
+-->
+
+        <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+
+            <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+                <div class="my-3 py-3">
+                    <h2 class="display-6" for="income-mop"> MOP Income </h2> <br>
+                    <input type="number" name="income" min="0" id="income-mop" required> <br>
+                </div>
+            </div>
+
+            <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                <div class="my-3 p-3">
+                    <h2 class="display-6">TOTAL TAX</h2> <br>
+                    <input type="number" name="tax" min="0" id="tax" disabled> <br>
+                </div>
+            </div>
+        </div>
+
+        <footer class="container py-5">
+            <div class="row">
+                <div class="col-12 col-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img"
+                        viewBox="0 0 24 24" focusable="false">
+                        <title>Product</title>
+                        <circle cx="12" cy="12" r="10" />
+                        <path
+                            d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
+                    </svg>
+                    <small class="d-block mb-3 text-muted">&copy; daniel-2019</small>
+                </div>
+        </footer>
+
+        <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Global Tax calculation</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                    <li class="nav-item dropup">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Dropup</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown10">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </main>
+</body>
+
+</html>
