@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ScanS",
+            "request": "launch",
+            "mainClass": "ScanS",
+            "projectName": "hw05_19906b81"
+        }
+    ]
+}
