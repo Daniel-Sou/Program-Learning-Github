@@ -1,5 +1,6 @@
 import java.util.Stack;
 
+// Queue scanning
 public class ScanS {
   private int arr[];
   private int front; // Front point to front element in the queue
@@ -11,7 +12,7 @@ public class ScanS {
   ScanS(int size) {
     arr = new int[size];
     capacity = size;
-    front = 0; 
+    front = 0;
     rear = -1;
     count = 0;
   }
@@ -31,8 +32,7 @@ public class ScanS {
 
     return arr[front];
   }
-  
-  
+
   // Add an item to the queue
   public void enqueue(int item) {
     // Check for queue overflow
@@ -76,7 +76,7 @@ public class ScanS {
   // Stack function
   static void printStack(Stack<Integer> s) {
     // If stack is empty then return
-    if(s.isEmpty()){
+    if (s.isEmpty()) {
       return;
     }
 
@@ -96,8 +96,8 @@ public class ScanS {
   }
 
   // scan S to see if it contains a certain element x
-  public static boolean scan(Stack<Integer> s, int x){
-    
+  public static boolean scan(Stack<Integer> s, int x) {
+
     // Create a queue
     ScanS q = new ScanS(s.size());
 
@@ -106,7 +106,7 @@ public class ScanS {
 
     //
     while (!s.isEmpty()) {
-      if(((Integer)s.peek()) == x) {
+      if (((Integer) s.peek()) == x) {
         found = true;
         break;
       }
@@ -114,16 +114,15 @@ public class ScanS {
     }
 
     // Return the elements back to s in their original order
-    while (!q.isEmpty()){
-      for(int i =1; i < q.size(); i++) {
+    while (!q.isEmpty()) {
+      for (int i = 1; i < q.size(); i++) {
         q.enqueue(q.dequeue());
         s.push(q.dequeue());
       }
     }
-    
+
     return found;
   }
-
 
   // Main driver function
   public static void main(String[] args) {
@@ -140,41 +139,31 @@ public class ScanS {
     s.push(1);
     s.push(3);
     s.push(0);
-    
 
     printStack(s);
 
     System.out.println(scan(s, 3));
 
     /***
-    q.enqueue(1);
-    q.enqueue(2);
-    q.enqueue(3);
-
-    System.out.println("Front element is >> " + q.peek());
-
-    q.dequeue();
-    
-    System.out.println("Front element is >> " + q.peek());
-    System.out.println("Queue size is >> " + q.size());
-
-    q.dequeue();
-    q.dequeue();
-
-    if (q.isEmpty()) {
-      System.out.println("Queue is Empty");
-    } else {
-      System.out.println("Queue is not Empty");
-    }
-
-    System.out.println("\nThis is Stack >> ");
-    s.push(1);
-    s.push(2);
-    s.push(3);
-    s.push(4);
-
-    printStack(s);
-    **/
+     * q.enqueue(1); q.enqueue(2); q.enqueue(3);
+     * 
+     * System.out.println("Front element is >> " + q.peek());
+     * 
+     * q.dequeue();
+     * 
+     * System.out.println("Front element is >> " + q.peek());
+     * System.out.println("Queue size is >> " + q.size());
+     * 
+     * q.dequeue(); q.dequeue();
+     * 
+     * if (q.isEmpty()) { System.out.println("Queue is Empty"); } else {
+     * System.out.println("Queue is not Empty"); }
+     * 
+     * System.out.println("\nThis is Stack >> "); s.push(1); s.push(2); s.push(3);
+     * s.push(4);
+     * 
+     * printStack(s);
+     **/
   }
 
   // END

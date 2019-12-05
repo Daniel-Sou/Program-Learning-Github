@@ -1,11 +1,13 @@
 var incomeMOP = document.getElementById("income-mop");
 var incomeHKD = document.getElementById("income-hkd");
+var incomeUSD = document.getElementById("income-usd");
 var wealthMOP = document.getElementById("wealth");
 var taxSUM = document.getElementById("tax");
 var mopEx = document.getElementById("mopex");
 
 incomeMOP.addEventListener("input", calculate);
 wealthMOP.addEventListener("input", calculate);
+mopEx.addEventListener("input",calculate);
 
 function double(a) {
     return a * 2;
@@ -49,15 +51,19 @@ function incomeTaxHKD(TaxableIncomeHKD) {
 
 // function to calculate USD in household country, exchange
 function exchangeUSD(ex = 1) {
-    return incomeMOP.value / ex;
+    var incomeUSD = incomeMOP.value / ex;
+    return incomeUSD;
 }
 
 // Function with updated by ISOM3029 Required - Main function
 function calculate() {
     // Implement the Macau Tax
     var mopTax = incomeTaxMOP(incomeMOP.value);
+    // Implement the HK Tax
     var hkdTax = incomeTaxHKD(incomeHKD.value);
     var wealthTax;
+
+    incomeUSD.value = exchangeUSD(mopEx.value);
 
     var wealthTax = 0.25 * wealthMOP.value;
     var tax = mopTax + wealthTax + hkdTax;
