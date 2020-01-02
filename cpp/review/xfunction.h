@@ -1,16 +1,3 @@
-class xfunction {
-    public:
-    // The 3 number
-    int n;
-    long t;
-    short m;
-    float R = 3.14;
-
-    // Construct a deafult object
-    xfunction();
-
-    // Construct a function object
-    long xfunction(long);
-    int xfunction(int, long);
-    short xfunction(short, long, int);
-};
+long xfunction(long n);
+int xfunction(int n, long t);
+short xfunction(short m, long n, int p);

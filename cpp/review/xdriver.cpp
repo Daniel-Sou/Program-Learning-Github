@@ -1,4 +1,4 @@
-// functionClassDriver.cpp
+// xdriver.cpp
 
 #include <iostream>
 #include "xfunction.h"

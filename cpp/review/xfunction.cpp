@@ -1,22 +1,18 @@
+#include <iostream>
 #include "xfunction.h"
+using namespace std;
 
-// Construct a default xfunction object
-xfunction::xfunction() {
-    
-}
-
-// Construct a xfunction object
-long xfunction::xfunction(long t) {
+long xfunction(long n) {
     cout << "long >> ";
-    return t;
+    return n;
 }
 
-int xfunction::xfunction(int n, long t) {
+int xfunction(int n, long t) {
     cout << "int >> ";
     return t - n;
 }
 
-short xfunction::xfunction(short m, long t, int n) {
+short xfunction(short m, long n, int p) {
     cout << "long >> ";
     return p + n + m;
 }
