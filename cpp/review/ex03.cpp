@@ -1,9 +1,10 @@
-// ex05.cpp
+// ex03.cpp
 
 #include <iostream>
 
 using namespace std;
 
+// Export the answer b to s
 void something ( int a, int& b )
 {
   int c;
@@ -19,7 +20,12 @@ int main(){
 
   something(t,s);
 
-  cout << r << ' ' << s << ' ' << t << endl;
+  cout << r << "\t" << s << "\t" << t << endl;
 
   return 0;
 }
+
+/*
+Output
+>> 1 14 3
+*/
